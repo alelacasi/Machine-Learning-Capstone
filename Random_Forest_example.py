@@ -5,6 +5,7 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler 
 from sklearn import metrics
+from sklearn import svm
 from sklearn.metrics import r2_score
 from sklearn.metrics import classification_report, confusion_matrix, accuracy_score
 import pandas as pd
@@ -69,9 +70,12 @@ x_test = sc.fit_transform(x_test)
 classifier = RandomForestClassifier(n_estimators=20,random_state = 0)
 classifier.fit(x_train, y_train)
 y_pred = classifier.predict(x_test)
+y_pred_acc = accuracy_score(y_test, y_pred)
+
 
 #Evaluating the algorithm
-print("--------------------------------Evaluating Classification--------------------------------")
-print(confusion_matrix(y_test,y_pred))
-print(classification_report(y_test,y_pred))
-print('Accuracy: ',accuracy_score(y_test, y_pred))
+print("--------------------------------Evaluating SVM--------------------------------")
+print('Accuracy: ', svm_accuracy)
+
+print("--------------------------------Evaluating Random Forest Classification--------------------------------")
+print('Accuracy: ',y_pred_acc)
