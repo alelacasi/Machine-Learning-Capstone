@@ -28,6 +28,7 @@ features.describe()
 
 features = pd.get_dummies(features)
 features.iloc[:,5:].head(5)
+
 # Convert the data into features and targets
 #* Labels are the values we want to predict
 labels = np.array(features['actual'])

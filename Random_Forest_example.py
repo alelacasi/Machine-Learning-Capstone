@@ -67,15 +67,36 @@ x_test = sc.fit_transform(x_test)
 
 #Training Phase using Random Forests
 #* n_estimators is the number of trees in the random forest
-classifier = RandomForestClassifier(n_estimators=20,random_state = 0)
-classifier.fit(x_train, y_train)
-y_pred = classifier.predict(x_test)
-y_pred_acc = accuracy_score(y_test, y_pred)
+
+count = 10
+svm_accuracy = 0
+y_pred_acc = 0
+
+for i in range(count): 
+    x_train, x_test, y_train, y_test = train_test_split(X,Y, test_size=0.2)
+
+    #SVM
+    model = svm.SVC()
+    model.fit(x_train, y_train)
+    prediction = model.predict(x_test)
+    svm_accuracy += accuracy_score(y_test, prediction)
+
+    #Random Forest Model
+    classifier = RandomForestClassifier(n_estimators=20,random_state = 0)
+    classifier.fit(x_train, y_train)
+    y_pred = classifier.predict(x_test)
+    y_pred_acc += accuracy_score(y_test, y_pred)
+
+y_pred_acc = y_pred_acc/count
+svm_accuracy = svm_accuracy/count
 
 
-#Evaluating the algorithm
 print("--------------------------------Evaluating SVM--------------------------------")
+#print('Prediction: ', prediction)
+#print('Actual:     ', y_test)
 print('Accuracy: ', svm_accuracy)
 
 print("--------------------------------Evaluating Random Forest Classification--------------------------------")
+#print('Prediction: ', y_pred)
+#print('Actual:     ', y_test)
 print('Accuracy: ',y_pred_acc)

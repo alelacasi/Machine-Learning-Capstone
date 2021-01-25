@@ -42,10 +42,11 @@ knn.fit(x_train, y_train)
 prediction = knn.predict(x_test)
 
 accuracy = metrics.accuracy_score(y_test, prediction)
-print('Prediction: ', prediction)
+#print('Prediction: ', prediction)
+#print('Actual: ', y_test)
 print('Accuracy: ', accuracy)
 
-for i in range(10):
-    print('Prediction: ', prediction[i])
-    print('Actual: ', y_test[i])
+# for i in range(10):
+#     print('Prediction: ', prediction[i])
+#     print('Actual: ', y_test[i])
 

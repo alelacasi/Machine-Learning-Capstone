@@ -10,9 +10,7 @@ import pandas as pd
 
 iris = datasets.load_iris()
 X = iris.data
-print(iris.data)
 Y = iris.target
-print(iris.target)
 
 classes = ['Iris Setosa', 'Iris Versicolour', 'Iris Virginica']
 
@@ -40,13 +38,13 @@ svm_accuracy = svm_accuracy/count
 
 
 print("--------------------------------Evaluating SVM--------------------------------")
-print('Prediction: ', prediction)
-print('Actual:     ', y_test)
+#print('Prediction: ', prediction)
+#print('Actual:     ', y_test)
 print('Accuracy: ', svm_accuracy)
 
 print("--------------------------------Evaluating Random Forest Classification--------------------------------")
-print('Prediction: ', y_pred)
-print('Actual:     ', y_test)
+#print('Prediction: ', y_pred)
+#print('Actual:     ', y_test)
 print('Accuracy: ',y_pred_acc)
 
 # for i in range(len(prediction)):
