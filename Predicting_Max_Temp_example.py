@@ -7,6 +7,7 @@ from sklearn.model_selection import train_test_split
 from sklearn import metrics
 from sklearn import svm
 from sklearn import neighbors
+from sklearn.utils import shuffle
 import pandas as pd
 import numpy as np
 from sklearn import tree
@@ -39,6 +40,8 @@ features= features.drop('actual', axis = 1)
 feature_list = list(features.columns)
 #* Convert to numpy array
 features = np.array(features)
+
+features, labels = shuffle(features, labels)
 
 # Training and testing
 train_features, test_features, train_labels, test_labels = train_test_split(features, labels, test_size = 0.25, random_state = 0)

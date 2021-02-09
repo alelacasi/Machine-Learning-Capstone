@@ -1,1 +1,1 @@
-Virginica
+gaussianNB

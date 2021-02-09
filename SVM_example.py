@@ -4,6 +4,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import classification_report, confusion_matrix, accuracy_score
+from sklearn.utils import shuffle
 from sklearn import svm
 import numpy as np
 import pandas as pd
@@ -12,7 +13,11 @@ iris = datasets.load_iris()
 X = iris.data
 Y = iris.target
 
-classes = ['Iris Setosa', 'Iris Versicolour', 'Iris Virginica']
+X, Y = shuffle(X, Y)
+X = np.array(X)
+X.head(5)
+
+""" classes = ['Iris Setosa', 'Iris Versicolour', 'Iris Virginica']
 
 count = 10
 svm_accuracy = 0
@@ -51,4 +56,4 @@ print('Accuracy: ',y_pred_acc)
 #     if(prediction[i] != y_test[i]):
 #         print('Index: ', i+1)
 #         print('Prediction: ', classes[prediction[i]])
-#         print('Actual: ', classes[y_test[i]])
+#         print('Actual: ', classes[y_test[i]]) """
