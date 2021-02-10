@@ -6,7 +6,7 @@ from sklearn.metrics import accuracy_score
 import numpy as np
 import pandas as pd
 
-data = pd.read_csv('car.data')
+data = pd.read_csv('car_data.csv')
 #print(data.head())
 
 #We define the important labels of the data that will be used
